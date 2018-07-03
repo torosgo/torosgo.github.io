@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TorosGo on TorosGo</title>
+    <link>/</link>
+    <description>Recent content in TorosGo on TorosGo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 03 Jul 2018 00:00:00 +0300</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Privacy Policy</title>
+      <link>/privacy/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0300</pubDate>
+      
+      <guid>/privacy/</guid>
+      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Serverless Containers</title>
+      <link>/blog/serverless-containers/</link>
+      <pubDate>Sun, 27 May 2018 10:10:15 +0300</pubDate>
+      
+      <guid>/blog/serverless-containers/</guid>
+      <description>
+
+&lt;p&gt;Container and serverless technologies bring important improvements to developer productivity. These technologies resolve developers&amp;rsquo; concerns about differences between production and development environments. They also improve applications&amp;rsquo; ability to execute more reliable and in scale. The two were being developed separately for a while and both have advantages and disadvantages. Serverless services generally have some platform limitations like supported programming langugage runtimes and operating environment. One of the difficulties with container environments was management of the container host environment. Schedulers like Kubernetes came to our life and helped us for container management, and evolved to managed services. But still there were nodes on which our pods are running and we pay for, monitor and scale them.&lt;/p&gt;
+
+&lt;p&gt;The innovative introduction of serverless containers makes it possible to access both of them. Deploying applications in containers without worrying about the host environment, server pool and supported runtimes was the next step of serverless and containers concept. With &lt;a href=&#34;https://github.com/virtual-kubelet/virtual-kubelet&#34; target=&#34;_blank&#34;&gt;Virtual Kubelet&lt;/a&gt;, it is possible to integrate them to Kubernetes environments. Using Virtual Kubelet, we get a virtual node in Kubernetes where we can deploy limitless pods in it in theory (it is only limited by the serverless container service&amp;rsquo;s limit). Brandan Burns has published a nice article on this subject and telling that &lt;a href=&#34;https://thenewstack.io/the-future-of-kubernetes-is-serverless/&#34; target=&#34;_blank&#34;&gt;The future of Kubernetes is serverless&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://azure.microsoft.com/en-us/services/container-instances/&#34; target=&#34;_blank&#34;&gt;Azure Container Instances (ACI)&lt;/a&gt; is the Microsoft&amp;rsquo;s serverless container service where we can directly create our containers in it. We use Virtual Kubelet &lt;a href=&#34;https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md&#34; target=&#34;_blank&#34;&gt;ACI Connector&lt;/a&gt; to itegrate ACI with Kubernetes.&lt;/p&gt;
+
+&lt;h2 id=&#34;managing-aci-containers&#34;&gt;Managing ACI Containers&lt;/h2&gt;
+
+&lt;h3 id=&#34;azure-functions&#34;&gt;Azure Functions&lt;/h3&gt;
+
+&lt;p&gt;One method for managing our container workflow is using Azure Functions by calling the ACI api. Brian Peek and Dimitris Gkanatsios have created a demo that shows use Azure Container Instances to automatically scale a multiplayer backend and how Azure Container Instances can be managed from Azure Functions. They demnstrate monitoring how many players are connected in an online game, and if there are too many players for one server to handle, they spin up a new server instance with ACI. They also shut them down when they&amp;rsquo;re no longer needed. The video and code can be find in Brian&amp;rsquo;s post &lt;a href=&#34;https://brianpeek.com/build-2018-gamedev-goodness/&#34; target=&#34;_blank&#34;&gt;Build 2018 - GameDev Goodness&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;logic-apps&#34;&gt;Logic Apps&lt;/h3&gt;
+
+&lt;p&gt;Another one is using Azure &lt;a href=&#34;https://azure.microsoft.com/en-us/services/logic-apps/&#34; target=&#34;_blank&#34;&gt;Logic Apps&lt;/a&gt;, which contains ACI Connector that supports creating and deleting container groups, getting the status or logs of a container group, and listing container groups. The Azure Sample &lt;a href=&#34;https://azure.microsoft.com/en-us/resources/samples/aci-logicapps-integration/&#34; target=&#34;_blank&#34;&gt;Run sentiment analysis based on triggers with Azure Container Instances (ACI) and the ACI Logic Apps connector&lt;/a&gt; descibes how to integrate ACI with Logic Apps&lt;/p&gt;
+
+&lt;h2 id=&#34;a-use-case-scenario-for-aci-static-site-generation&#34;&gt;A Use Case Scenario for ACI: Static Site Generation&lt;/h2&gt;
+
+&lt;p&gt;There are many use case scenarios like batch or bursty workloads that we can use ACI for. One of them is static site generation pipeline with serverless containers. We can use Hugo, Azure logic apps, ACI, Azure Container Registry (ACR), VSTS/Github and Azure Blob Storage as components of this pipeline. Hugo is an open source static site generator written in Go. It compiles static web sites from markdown files and we can deploy them to one of the static file serving services. Azure Blob Storage is a managed service which supports serving static websites and we can also integrate it with CDN to lower the costs of metwork bandwidth.&lt;/p&gt;
+
+&lt;p&gt;The workflow is, first we create a docker image with Hugo installed in it. Then, we push the image to a docker registry. After we create a new post in a markdown file, we push it to our git repository either in Github or VSTS. A Logic App triggers and launches a container from our Hugo docker image. Using the container we compile static files from our markdown post and deploy it to Azure Blob storage. When the job is done, container is closed and website is ready to be published from Blob Storage and CDN.&lt;/p&gt;
+
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;Thare are various ways of preparing static site generation, but with this scenario we don&amp;rsquo;t need to provision and manage servers to compile our markdown post with Hugo and publish. All flow is done with serverless services together with ACI.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

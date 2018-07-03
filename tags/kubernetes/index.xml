@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on TorosGo</title>
+    <link>/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on TorosGo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 27 May 2018 10:10:15 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Serverless Containers</title>
+      <link>/blog/serverless-containers/</link>
+      <pubDate>Sun, 27 May 2018 10:10:15 +0300</pubDate>
+      
+      <guid>/blog/serverless-containers/</guid>
+      <description>Container and serverless technologies bring important improvements to developer productivity. These technologies resolve developers&amp;rsquo; concerns about differences between production and development environments. They also improve applications&amp;rsquo; ability to execute more reliable and in scale. The two were being developed separately for a while and both have advantages and disadvantages. Serverless services generally have some platform limitations like supported programming langugage runtimes and operating environment. One of the difficulties with container environments was management of the container host environment.</description>
+    </item>
+    
+  </channel>
+</rss>
